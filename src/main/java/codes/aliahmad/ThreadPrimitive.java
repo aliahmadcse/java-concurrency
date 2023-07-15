@@ -1,46 +1,13 @@
 package codes.aliahmad;
 
+import codes.aliahmad.primeutils.PrimeUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ThreadPrimitive
 {
-  // integers less than 1 are not handled
-  public static boolean isPrime(int n)
-  {
-    if (n == 2)
-    {
-      return false;
-    }
-
-    for (int i = 2; i < n; i++)
-    {
-      if (n % i == 0)
-      {
-        return false;
-      }
-    }
-    return true;
-  }
-
-
-  public static int calculateNthPrime(int n)
-  {
-    int num = 1;
-    int primeCount = 0;
-
-    while (primeCount < n)
-    {
-      if (isPrime(num))
-      {
-        primeCount++;
-      }
-      num++;
-    }
-
-    return --num;
-  }
 
 
   public static void printThreadState(List<Thread> threads)
@@ -51,6 +18,28 @@ public class ThreadPrimitive
   public static void main(String[] args)
   {
     List<Thread> threads = new ArrayList<>();
+
+    //      thread states
+//      new, runnable, blocked, waiting, timed waiting, terminated
+//      we call it runnable state and not running, because it is upto OS to run this thread and schedule it
+//      time waiting happens when you sleep on the thread
+//      waiting is when you wait for joining of threads
+//      blocked is a state of deadlock
+    new Thread(() -> {
+      try
+      {
+        while (true)
+        {
+          Thread.sleep(5000);
+          printThreadState(threads);
+        }
+      }
+      catch (InterruptedException e)
+      {
+        throw new RuntimeException(e);
+      }
+    }).start();
+
 
     while (true)
     {
@@ -64,7 +53,7 @@ public class ThreadPrimitive
       }
 
 
-      Thread thread = new Thread(() -> System.out.printf("Value of %s prime number is: %s \n", n, calculateNthPrime(n)));
+      Thread thread = new Thread(() -> System.out.printf("Value of %s prime number is: %s \n", n, PrimeUtils.calculateNthPrime(n)));
 
       thread.setName(String.format("prime %s", n));
 
@@ -72,15 +61,8 @@ public class ThreadPrimitive
 //      it you spawn a user thread, it won't end with the main thread exit
       thread.setDaemon(true);
       thread.start();
-
-//      thread states
-//      new, runnable, blocked, waiting, timed waiting, terminated
-//      we call it runnable state and not running, because it is upto OS to run this thread and schedule it
-//      time waiting happens when you sleep on the thread
-//      waiting is when you wait for joining of threads
-//      blocked is a state of deadlock
       threads.add(thread);
-      new Thread(() -> printThreadState(threads)).start();
+
       System.out.println("\n-------------------------------------------------\n");
 
     }
