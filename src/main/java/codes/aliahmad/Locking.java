@@ -9,6 +9,10 @@ class Counter implements Runnable
   public void run()
   {
 //    monitors -> object based locking
+//    synchronization achieves mutual exclusion also known as mutex -> only one thread can access the member variables at a time
+//    synchronization also achieves visibility -> if one thread changes the value of a variable, other threads can see the change
+//    synchronization ensures that the changes are flushed to the main memory and not just the cache
+//    this is also known as structured locking
     synchronized (this)
     {
       increment();
