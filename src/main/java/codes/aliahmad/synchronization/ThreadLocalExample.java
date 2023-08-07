@@ -1,4 +1,4 @@
-package codes.aliahmad;
+package codes.aliahmad.synchronization;
 
 public class ThreadLocalExample
 {
