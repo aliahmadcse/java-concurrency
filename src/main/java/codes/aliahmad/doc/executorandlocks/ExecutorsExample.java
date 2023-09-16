@@ -1,6 +1,6 @@
-package codes.aliahmad.executorandlocks;
+package codes.aliahmad.doc.executorandlocks;
 
-import codes.aliahmad.primeutils.PrimeUtils;
+import codes.aliahmad.doc.primeutils.PrimeUtils;
 
 import java.util.Scanner;
 import java.util.concurrent.Executors;

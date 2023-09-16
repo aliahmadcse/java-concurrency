@@ -1,6 +1,6 @@
-package codes.aliahmad.callablesfuture;
+package codes.aliahmad.doc.callablesfuture;
 
-import codes.aliahmad.primeutils.PrimeUtils;
+import codes.aliahmad.doc.primeutils.PrimeUtils;
 
 import java.util.Scanner;
 import java.util.concurrent.CompletableFuture;

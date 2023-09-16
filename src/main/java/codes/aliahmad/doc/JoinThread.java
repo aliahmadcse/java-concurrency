@@ -1,7 +1,7 @@
-package codes.aliahmad;
+package codes.aliahmad.doc;
 
 
-import codes.aliahmad.primeutils.PrimeUtils;
+import codes.aliahmad.doc.primeutils.PrimeUtils;
 
 import java.util.ArrayList;
 import java.util.List;

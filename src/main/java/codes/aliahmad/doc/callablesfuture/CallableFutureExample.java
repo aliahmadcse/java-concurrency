@@ -1,4 +1,4 @@
-package codes.aliahmad.callablesfuture;
+package codes.aliahmad.doc.callablesfuture;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;

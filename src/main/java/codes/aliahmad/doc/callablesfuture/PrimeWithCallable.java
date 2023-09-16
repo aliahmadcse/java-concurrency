@@ -1,8 +1,7 @@
-package codes.aliahmad.callablesfuture;
+package codes.aliahmad.doc.callablesfuture;
 
-import codes.aliahmad.primeutils.PrimeUtils;
+import codes.aliahmad.doc.primeutils.PrimeUtils;
 
-import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -12,9 +11,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 public class PrimeWithCallable
 {

@@ -1,9 +1,8 @@
-package codes.aliahmad.forkjoin;
+package codes.aliahmad.doc.forkjoin;
 
-import codes.aliahmad.primeutils.PrimeUtils;
+import codes.aliahmad.doc.primeutils.PrimeUtils;
 
 import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveTask;
 
 public class ForkJoinExample

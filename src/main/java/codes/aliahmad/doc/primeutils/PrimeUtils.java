@@ -1,4 +1,4 @@
-package codes.aliahmad.primeutils;
+package codes.aliahmad.doc.primeutils;
 
 public class PrimeUtils
 {

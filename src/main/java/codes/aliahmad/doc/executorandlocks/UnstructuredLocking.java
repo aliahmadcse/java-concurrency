@@ -1,24 +1,28 @@
-package codes.aliahmad.synchronization;
+package codes.aliahmad.doc.executorandlocks;
 
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 class Counter implements Runnable
 {
   private int count = 0;
+  private final Lock lock = new ReentrantLock();
 
   @Override
   public void run()
   {
-//    monitors -> object based locking
-//    synchronization achieves mutual exclusion also known as mutex -> only one thread can access the member variables at a time
-//    synchronization also achieves visibility -> if one thread changes the value of a variable, other threads can see the change
-//    synchronization ensures that the changes are flushed to the main memory and not just the cache
-//    this is also known as structured locking
-    synchronized (this)
+    lock.lock();
+    try
     {
       increment();
       System.out.println("Thread " + Thread.currentThread().getName() + " increments: " + count);
       decrement();
       System.out.println("Thread " + Thread.currentThread().getName() + " decrements: " + count);
+    }
+    finally
+    {
+      lock.unlock();
     }
   }
 
@@ -38,14 +42,22 @@ class Counter implements Runnable
   }
 }
 
-public class Locking
+public class UnstructuredLocking
 {
   public static void main(String[] args)
   {
+//      Structured locking is when your lock is implicitly acquired and released by the language or framework.
+//      Unstructured locking is when you explicitly acquire and release the lock.
+
     Counter counter = new Counter();
     new Thread(counter, "1").start();
     new Thread(counter, "2").start();
     new Thread(counter, "3").start();
     new Thread(counter, "4").start();
+
+    Counter counter2 = new Counter();
+    new Thread(counter2, "5").start();
+
   }
+
 }

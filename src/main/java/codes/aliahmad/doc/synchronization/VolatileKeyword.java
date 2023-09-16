@@ -1,4 +1,4 @@
-package codes.aliahmad.synchronization;
+package codes.aliahmad.doc.synchronization;
 
 public class VolatileKeyword
 {

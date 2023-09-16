@@ -1,6 +1,6 @@
-package codes.aliahmad.semaphors;
+package codes.aliahmad.doc.semaphors;
 
-import codes.aliahmad.primeutils.PrimeUtils;
+import codes.aliahmad.doc.primeutils.PrimeUtils;
 
 import java.util.Scanner;
 import java.util.concurrent.Semaphore;
