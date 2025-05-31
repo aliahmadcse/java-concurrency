@@ -12,7 +12,7 @@ public class DaemonThread {
                 }
             }
         });
-        daemon.setDaemon(true); // Set as daemon
+//        daemon.setDaemon(true); // Set as daemon
         daemon.start();
 
         System.out.println("Main thread done.");

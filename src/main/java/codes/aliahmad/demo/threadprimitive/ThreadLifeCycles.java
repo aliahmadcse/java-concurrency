@@ -29,7 +29,10 @@ public class ThreadLifeCycles
         break;
       }
 
-      Runnable r = () -> System.out.println(STR. "\n Value of \{ n }th prime number is \{ PrimeUtils.calculateNthPrime(n) }\n" );
+      Runnable r = () -> System.out.println(String.format(
+              "\n Value of %dth prime number is %d\n",
+              n, PrimeUtils.calculateNthPrime(n)
+      ));
 
       Thread thread = new Thread(r);
       thread.setName(String.format("prime %s", n));

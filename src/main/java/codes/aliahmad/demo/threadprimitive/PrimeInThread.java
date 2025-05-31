@@ -4,8 +4,6 @@ import codes.aliahmad.doc.primeutils.PrimeUtils;
 
 import java.util.Scanner;
 
-import static java.lang.StringTemplate.STR;
-
 public class PrimeInThread
 {
   public static void main(String[] args)
@@ -22,11 +20,12 @@ public class PrimeInThread
         break;
       }
 
-      Runnable r = () -> System.out.println(STR."\n Value of \{n}th prime number is \{PrimeUtils.calculateNthPrime(n)}\n");
+      Runnable r = () -> System.out.printf("%n Value of %dth prime number is %d%n",
+              n, PrimeUtils.calculateNthPrime(n)
+      );
 
       Thread thread = new Thread(r);
       thread.start();
-
     }
   }
 }
